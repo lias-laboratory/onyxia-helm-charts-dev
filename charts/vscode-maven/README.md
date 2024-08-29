@@ -1,15 +1,15 @@
-# vscode-python
+# vscode-maven
 
-![Version: 1.11.42](https://img.shields.io/badge/Version-1.11.42-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-The Visual Studio Code IDE with Python, Julia, and a collection of standard data science packages.
+The Visual Studio Code IDE with Java and Maven.
 
 **Homepage:** <https://code.visualstudio.com/>
 
 ## Source Code
 
-* <https://github.com/InseeFrLab/images-datascience>
-* <https://github.com/InseeFrLab/helm-charts-interactive-services>
+* <https://github.com/lias-laboratory/onyxia-images-development>
+* <https://github.com/lias-laboratory/onyxia-helm-charts-dev>
 
 ## Requirements
 
@@ -98,9 +98,9 @@ The Visual Studio Code IDE with Python, Julia, and a collection of standard data
 | security.password | string | `"changeme"` |  |
 | securityContext | object | `{}` |  |
 | service.image.custom.enabled | bool | `false` |  |
-| service.image.custom.version | string | `"inseefrlab/onyxia-vscode-python:py3.12.4"` |  |
+| service.image.custom.version | string | `"liaslaboratory/onyxia-vscode-maven:20"` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"inseefrlab/onyxia-vscode-python:py3.12.4"` |  |
+| service.image.version | string | `"liaslaboratory/onyxia-vscode-maven:20"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
