@@ -21,12 +21,13 @@
               ]
             },
             "version": {
-              "description": "vscode supported version",
+              "description": "Java version",
               "type": "string",
-              "default": "inseefrlab/onyxia-vscode-python:py3.12.4",
+              "default": "liaslaboratory/onyxia-vscode-maven:java20",
               "listEnum": [
-                "inseefrlab/onyxia-vscode-python:py3.12.4",
-                "inseefrlab/onyxia-vscode-python:py3.11.9"
+                "liaslaboratory/onyxia-vscode-maven:java11",
+                "liaslaboratory/onyxia-vscode-maven:java17",
+		"liaslaboratory/onyxia-vscode-maven:java20"
               ],
               "render": "list",
               "hidden": {
@@ -47,7 +48,7 @@
                 "version": {
                   "description": "vscode unsupported version",
                   "type": "string",
-                  "default": "inseefrlab/onyxia-vscode-python:py3.12.4",
+                  "default": "liaslaboratory/onyxia-vscode-maven:java20",
                   "hidden": {
                     "value": false,
                     "path": "service/image/custom/enabled"
