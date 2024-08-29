@@ -1,14 +1,9 @@
 name: Release Charts
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
-    paths:
-      - 'charts/**'
-      - 'utils/charts-inheritance.yaml'
-      - 'utils/generate-children-charts.py'
 
 jobs:
   release:
@@ -27,21 +22,6 @@ jobs:
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-
-      - name: Install Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10' 
-
-      - name: Generate children charts
-        run: |
-          pip install pyyaml
-          python3 utils/generate-children-charts.py
-          if [[ `git status --porcelain` ]]; then
-            git add -A
-            git commit -m "Automated changes"
-            git push
-          fi
 
       - name: Install Helm
         uses: azure/setup-helm@v4
@@ -66,9 +46,5 @@ jobs:
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
-        with:
-          charts_dir: charts
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-
-
