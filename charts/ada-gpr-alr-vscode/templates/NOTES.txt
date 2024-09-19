@@ -1,0 +1,51 @@
+{{- if eq .Values.userPreferences.language "fr"}}
+{{- if .Values.ingress.enabled }}
+- Vous pouvez vous connecter à ce Visual Studio Code avec votre navigateur en utilisant ce [lien](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.hostname }})
+{{- if .Values.networking.user.enabled }}
+- Vous pouvez vous connecter à votre port personnalisé en utilisant ce [lien](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.userHostname }})
+Si vous n'exécutez pas votre service personnalisé, vous obtiendrez une erreur 502 Bad Gateway.
+{{- end }}
+{{- end }}
+{{- if .Values.route.enabled }}
+- Vous pouvez vous connecter à ce Visual Studio Code avec votre navigateur en utilisant ce [lien](https://{{ .Values.route.hostname }})
+{{- if .Values.networking.user.enabled }}
+- Vous pouvez vous connecter à votre port personnalisé en utilisant ce [lien](https://{{ .Values.route.userHostname }})
+Si vous n'exécutez pas votre service personnalisé, vous obtiendrez une erreur 502 Bad Gateway.
+{{- end }}
+{{- end }}
+- Votre password: {{ .Values.security.password }}
+
+*REMARQUES concernant la suppression :*
+
+{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}
+- Le volume associé au chemin suivant **/home/{{ .Values.environment.user }}/work** sera supprimé
+- Par conséquent, vous devriez sauvegarder votre code dans un dépôt Git externe
+- Vous devriez également sauvegarder vos données dans un référentiel de données externe tel que S3
+- Vous pouvez facilement créer un nouveau service {{ .Chart.Name }}, cloner votre code et réinstaller les bibliothèques dont vous avez besoin
+{{- end }}
+{{- else }}
+{{- if .Values.ingress.enabled }}
+- You can connect to this vscode with your browser on this [link](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.hostname }})
+{{- if .Values.networking.user.enabled }}
+- You can connect to your custom port on this [link](http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.userHostname }})
+If you don't run your custom service you will get a 502 bad gateway error.
+{{- end }}
+{{- end }}
+{{- if .Values.route.enabled }}
+- You can connect to this vscode with your browser on this [link](https://{{ .Values.route.hostname }})
+{{- if .Values.networking.user.enabled }}
+- You can connect to your custom port on this [link](https://{{ .Values.route.userHostname }})
+If you don't run your custom service you will get a 502 bad gateway error.
+{{- end }}
+{{- end }}
+- Your password: {{ .Values.security.password }}
+
+*NOTES about deletion :*
+
+{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}
+- The volume associated with the following path **/home/{{ .Values.environment.user }}/work** will be deleted
+- So, you should save your code to an external git repository
+- So, You should save your data to an external data repository like S3
+- You can easily create a new {{ .Chart.Name }} service, clone your code and install again some librairies you need
+{{- end }}
+{{- end }}
