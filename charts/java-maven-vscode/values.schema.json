@@ -23,11 +23,11 @@
             "version": {
               "description": "Java version",
               "type": "string",
-              "default": "liaslaboratory/onyxia-vscode-maven:java20",
+              "default": "liaslaboratory/onyxia-java-maven-vscode:java20",
               "listEnum": [
-                "liaslaboratory/onyxia-vscode-maven:java11",
-                "liaslaboratory/onyxia-vscode-maven:java17",
-		"liaslaboratory/onyxia-vscode-maven:java20"
+                "liaslaboratory/onyxia-java-maven-vscode:java11",
+                "liaslaboratory/onyxia-java-maven-vscode:java17",
+		            "liaslaboratory/onyxia-java-maven-vscode:java20"
               ],
               "render": "list",
               "hidden": {
@@ -48,7 +48,7 @@
                 "version": {
                   "description": "vscode unsupported version",
                   "type": "string",
-                  "default": "liaslaboratory/onyxia-vscode-maven:java20",
+                  "default": "liaslaboratory/onyxia-java-maven-vscode:java20",
                   "hidden": {
                     "value": false,
                     "path": "service/image/custom/enabled"
@@ -93,7 +93,7 @@
               "default": "2Gi",
               "render": "slider",
               "sliderMin": 1,
-              "sliderMax": 200,
+              "sliderMax": 32,
               "sliderStep": 1,
               "sliderUnit": "Gi",
               "sliderExtremity": "down",
@@ -132,10 +132,10 @@
               "description": "The maximum amount of memory",
               "title": "Memory",
               "type": "string",
-              "default": "50Gi",
+              "default": "10Gi",
               "render": "slider",
               "sliderMin": 1,
-              "sliderMax": 200,
+              "sliderMax": 32,
               "sliderStep": 1,
               "sliderUnit": "Gi",
               "sliderExtremity": "up",
@@ -167,7 +167,7 @@
           "form": true,
           "render": "slider",
           "sliderMin": 1,
-          "sliderMax": 100,
+          "sliderMax": 50,
           "sliderStep": 1,
           "sliderUnit": "Gi",
           "x-onyxia": {
@@ -239,30 +239,6 @@
           ]
         }
       }
-    },
-    "openshiftSCC": {
-      "description": "configuration for openshift compatibility",
-      "type": "object",
-      "properties": {
-          "enabled": {
-          "description": "enable rolebinding with openshift scc",
-          "type": "boolean",
-          "default": false,
-          "x-onyxia": {
-              "hidden": true,
-              "overwriteDefaultWith": "region.openshiftSCC.enabled"
-              }
-          },
-          "scc": {
-              "type": "string",
-              "description": "name of scc for rolebinding",
-              "default": "anyuid",
-              "x-onyxia": {
-                  "hidden": true,
-                  "overwriteDefaultWith": "region.openshiftSCC.scc"
-              }
-          }
-        }
     },
     "vault": {
       "description": "Configuration of vault client",
@@ -695,30 +671,6 @@
           "x-onyxia": {
             "hidden": true,
             "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-user.{{k8s.domain}}"
-          }
-        }
-      }
-    },
-    "repository": {
-      "description": "python repositories for pip and conda",
-      "type": "object",
-      "properties": {
-        "pipRepository": {
-          "type": "string",
-          "description": "python repository for pip",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "{{packageRepositoryInjection.pypiProxyUrl}}"
-          }
-        },
-        "condaRepository": {
-          "type": "string",
-          "description": "python repository for pip",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "{{packageRepositoryInjection.condaProxyUrl}}"
           }
         }
       }

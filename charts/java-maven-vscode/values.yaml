@@ -4,11 +4,11 @@ global:
 
 service:
   image:
-    version: "liaslaboratory/onyxia-vscode-maven:20"
+    version: "liaslaboratory/onyxia-java-maven-vscode:java20"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
-      version: "liaslaboratory/onyxia-vscode-maven:20"
+      version: "liaslaboratory/onyxia-java-maven-vscode:java20"
 
 security:
   password: "changeme"

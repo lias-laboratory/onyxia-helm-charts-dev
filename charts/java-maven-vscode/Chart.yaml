@@ -1,14 +1,14 @@
 apiVersion: v2
-name: vscode-maven
+name: java-maven-vscode
 description: The Visual Studio Code IDE with Java and Maven.
 icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
 keywords:
-  - VSCode
   - Java
   - Maven
+  - VSCode
 home: https://code.visualstudio.com/
 sources:
-  - https://github.com/lias-laboratory/onyxia-images-development
+  - https://github.com/lias-laboratory/onyxia-images-dev
   - https://github.com/lias-laboratory/onyxia-helm-charts-dev
 # A chart can be either an 'application' or a 'library' chart.  
 #
