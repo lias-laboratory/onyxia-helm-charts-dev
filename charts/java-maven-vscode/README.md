@@ -1,4 +1,4 @@
-# vscode-maven
+# java-maven-vscode
 
 ![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
@@ -8,7 +8,7 @@ The Visual Studio Code IDE with Java and Maven.
 
 ## Source Code
 
-* <https://github.com/lias-laboratory/onyxia-images-development>
+* <https://github.com/lias-laboratory/onyxia-images-dev>
 * <https://github.com/lias-laboratory/onyxia-helm-charts-dev>
 
 ## Requirements
@@ -98,9 +98,9 @@ The Visual Studio Code IDE with Java and Maven.
 | security.password | string | `"changeme"` |  |
 | securityContext | object | `{}` |  |
 | service.image.custom.enabled | bool | `false` |  |
-| service.image.custom.version | string | `"liaslaboratory/onyxia-vscode-maven:20"` |  |
+| service.image.custom.version | string | `"liaslaboratory/onyxia-java-maven-vscode:java20"` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"liaslaboratory/onyxia-vscode-maven:20"` |  |
+| service.image.version | string | `"liaslaboratory/onyxia-java-maven-vscode:java20"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
