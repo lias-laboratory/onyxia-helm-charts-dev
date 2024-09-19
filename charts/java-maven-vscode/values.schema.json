@@ -23,11 +23,11 @@
             "version": {
               "description": "Java version",
               "type": "string",
-              "default": "liaslaboratory/onyxia-java-maven-vscode:java20",
+              "default": "liaslaboratory/onyxia-java-maven-vscode:20",
               "listEnum": [
-                "liaslaboratory/onyxia-java-maven-vscode:java11",
-                "liaslaboratory/onyxia-java-maven-vscode:java17",
-		            "liaslaboratory/onyxia-java-maven-vscode:java20"
+                "liaslaboratory/onyxia-java-maven-vscode:11",
+                "liaslaboratory/onyxia-java-maven-vscode:17",
+		            "liaslaboratory/onyxia-java-maven-vscode:20"
               ],
               "render": "list",
               "hidden": {
