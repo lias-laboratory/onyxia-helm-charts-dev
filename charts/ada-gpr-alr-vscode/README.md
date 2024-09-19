@@ -1,8 +1,8 @@
-# vscode-maven
+# ada-gpr-alr-vscode
 
-![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-The Visual Studio Code IDE with Java and Maven.
+The Visual Studio Code IDE with Ada toolsuite.
 
 **Homepage:** <https://code.visualstudio.com/>
 
@@ -98,9 +98,9 @@ The Visual Studio Code IDE with Java and Maven.
 | security.password | string | `"changeme"` |  |
 | securityContext | object | `{}` |  |
 | service.image.custom.enabled | bool | `false` |  |
-| service.image.custom.version | string | `"liaslaboratory/onyxia-vscode-maven:20"` |  |
+| service.image.custom.version | string | `"liaslaboratory/onyxia-ada-gpr-alr-vscode:12.3.0"` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"liaslaboratory/onyxia-vscode-maven:20"` |  |
+| service.image.version | string | `"liaslaboratory/onyxia-ada-gpr-alr-vscode:12.3.0"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
