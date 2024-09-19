@@ -98,9 +98,9 @@ The Visual Studio Code IDE with Java and Maven.
 | security.password | string | `"changeme"` |  |
 | securityContext | object | `{}` |  |
 | service.image.custom.enabled | bool | `false` |  |
-| service.image.custom.version | string | `"liaslaboratory/onyxia-java-maven-vscode:java20"` |  |
+| service.image.custom.version | string | `"liaslaboratory/onyxia-java-maven-vscode:20"` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"liaslaboratory/onyxia-java-maven-vscode:java20"` |  |
+| service.image.version | string | `"liaslaboratory/onyxia-java-maven-vscode:20"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
