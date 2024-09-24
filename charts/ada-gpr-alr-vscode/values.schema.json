@@ -1,9 +1,9 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema",
   "type": "object",
   "properties": {
     "service": {
-      "description": "spark-history specific configuration",
+      "description": "Service specific configuration",
       "type": "object",
       "properties": {
         "image": {
@@ -39,7 +39,10 @@
                   "title": "custom image",
                   "type": "boolean",
                   "description": "use a custom vscode docker images",
-                  "default": false
+                  "default": false,
+                  "x-onyxia": {
+                      "overwriteSchemaWith": "ide/customImage.json"
+                  }
                 },
                 "version": {
                   "description": "vscode unsupported version",
@@ -59,6 +62,9 @@
     "resources": {
       "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
       "type": "object",
+      "x-onyxia": {
+          "overwriteSchemaWith": "ide/resources.json"
+      },
       "properties": {
         "requests": {
           "description": "Guaranteed resources",
@@ -149,6 +155,9 @@
     "persistence": {
       "description": "Configuration for persistence",
       "type": "object",
+      "x-onyxia": {
+          "overwriteSchemaWith": "ide/persistence.json"
+      },
       "properties": {
         "enabled": {
           "type": "boolean",
@@ -180,6 +189,9 @@
     "init": {
       "description": "Init parameters",
       "type": "object",
+      "x-onyxia": {
+          "overwriteSchemaWith": "ide/init.json"
+      },
       "properties": {
         "regionInit": {
           "type": "string",
@@ -214,6 +226,9 @@
     "kubernetes": {
       "description": "configuration of your kubernetes access",
       "type": "object",
+      "x-onyxia": {
+          "overwriteSchemaWith": "ide/role.json"
+      },
       "properties": {
         "enabled": {
           "type": "boolean",
@@ -228,17 +243,21 @@
             "value": false,
             "path": "kubernetes/enabled"
           },
-          "enum": [
+          "listEnum": [
             "view",
             "edit",
             "admin"
-          ]
+          ],
+          "render": "list"
         }
       }
     },
     "openshiftSCC": {
       "description": "configuration for openshift compatibility",
       "type": "object",
+      "x-onyxia": {
+          "overwriteSchemaWith": "ide/openshiftSCC.json"
+      },
       "properties": {
           "enabled": {
           "description": "enable rolebinding with openshift scc",
@@ -263,6 +282,9 @@
     "vault": {
       "description": "Configuration of vault client",
       "type": "object",
+      "x-onyxia": {
+          "overwriteSchemaWith": "ide/vault.json"
+      },
       "properties": {
         "enabled": {
           "type": "boolean",
@@ -328,6 +350,9 @@
     "s3": {
       "description": "Configuration of temporary identity",
       "type": "object",
+      "x-onyxia": {
+          "overwriteSchemaWith": "ide/s3.json"
+      },
       "properties": {
         "enabled": {
           "type": "boolean",
@@ -396,6 +421,9 @@
     "git": {
       "description": "Git user configuration",
       "type": "object",
+      "x-onyxia": {
+          "overwriteSchemaWith": "ide/git.json"
+      },
       "properties": {
         "enabled": {
           "type": "boolean",
@@ -528,74 +556,56 @@
       }
     },
     "security": {
-      "description": "security specific configuration",
-      "type": "object",
-      "properties": {
-        "password": {
-          "type": "string",
-          "description": "Password",
-          "default": "changeme",
-          "render": "password",
-          "x-onyxia": {
-            "overwriteDefaultWith": "{{service.oneTimePassword}}"
-          }
-        },
-        "allowlist": {
-          "type": "object",
-          "description": "IP protection",
-          "properties": {
-            "enabled": {
-              "type": "boolean",
-              "title": "Enable IP protection",
-              "description": "Only the configured set of IPs will be able to reach the service",
-              "default": true,
-              "x-onyxia": {
-                "overwriteDefaultWith": "region.defaultIpProtection"
-              }
+        "description": "security specific configuration",
+        "type": "object",
+        "properties": {
+            "password": {
+                "type": "string",
+                "description": "Password",
+                "default": "changeme",
+                "render": "password",
+                "x-onyxia": {
+                    "overwriteDefaultWith": "{{service.oneTimePassword}}",
+                    "overwriteSchemaWith": "ide/password"
+                }
             },
-            "ip": {
-              "type": "string",
-              "description": "the white list of IP is whitespace",
-              "title": "Whitelist of IP",
-              "x-onyxia": {
-                "overwriteDefaultWith": "{{user.ip}}"
-              }
+            "networkPolicy": {
+                "type": "object",
+                "description": "Define access policy to the service",
+                "x-onyxia": {
+                    "overwriteSchemaWith": "network-policy.json"
+                },
+                "properties": {
+                    "enabled": {
+                        "type": "boolean",
+                        "title": "Enable network policy",
+                        "description": "Only pod from the same namespace will be allowed",
+                        "default": false,
+                        "x-onyxia": {
+                            "overwriteDefaultWith": "region.defaultNetworkPolicy"
+                        }
+                    },
+                    "from": {
+                        "type": "array",
+                        "description": "Array of source allowed to have network access to your service",
+                        "default": [],
+                        "x-onyxia": {
+                            "hidden": true,
+                            "overwriteDefaultWith": "region.from"
+                        }
+                    }
+                }
             }
-          }
-        },
-        "networkPolicy": {
-          "type": "object",
-          "description": "Define access policy to the service",
-          "properties": {
-            "enabled": {
-              "type": "boolean",
-              "title": "Enable network policy",
-              "description": "Only pod from the same namespace will be allowed",
-              "default": true,
-              "x-onyxia": {
-                "overwriteDefaultWith": "region.defaultNetworkPolicy"
-              }
-            },
-            "from": {
-              "type": "array",
-              "description": "Array of source allowed to have network access to your service",
-              "default": [],
-              "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.from"
-              }
-            }
-          }
         }
-      }
     },
     "nodeSelector": {
       "type": "object",
       "description": "NodeSelector",
       "default": {},
       "x-onyxia": {
-        "hidden": false,
-        "overwriteDefaultWith": "region.nodeSelector"
+          "hidden": false,
+          "overwriteDefaultWith": "region.nodeSelector",
+          "overwriteSchemaWith": "nodeSelector.json"
       }
     },
     "ingress": {
@@ -695,37 +705,20 @@
         }
       }
     },
-    "repository": {
-      "description": "python repositories for pip and conda",
-      "type": "object",
-      "properties": {
-        "pipRepository": {
-          "type": "string",
-          "description": "python repository for pip",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "{{packageRepositoryInjection.pypiProxyUrl}}"
-          }
-        },
-        "condaRepository": {
-          "type": "string",
-          "description": "python repository for pip",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "{{packageRepositoryInjection.condaProxyUrl}}"
-          }
-        }
-      }
-    },
     "startupProbe": {
       "type": "object",
-      "description": "Start up probe",
-      "default": {},
+      "description": "Startup probe",
+      "default": {
+        "failureThreshold": 60,
+        "initialDelaySeconds": 10,
+        "periodSeconds": 10,
+        "successThreshold": 1,
+        "timeoutSeconds": 2
+      },
       "x-onyxia": {
-        "hidden": true,
-        "overwriteDefaultWith": "region.startupProbe"
+          "hidden": true,
+          "overwriteDefaultWith": "region.startupProbe",
+          "overwriteSchemaWith": "ide/startupProbe.json"
       }
     },
     "tolerations": {
@@ -733,8 +726,9 @@
       "description": "Array of tolerations",
       "default": [],
       "x-onyxia": {
-        "hidden": true,
-        "overwriteDefaultWith": "region.tolerations"
+          "hidden": true,
+          "overwriteDefaultWith": "region.tolerations",
+          "overwriteSchemaWith": "tolerations.json"
       }
     },
     "userPreferences": {
@@ -773,6 +767,65 @@
             "hidden": true
           }
         }
+      }
+    },
+    "proxy": {
+      "description": "It can be used to inject proxy settings in the services",
+      "type": "object",
+      "x-onyxia": {
+          "overwriteSchemaWith": "proxy.json"
+      },
+      "properties": {
+          "enabled": {
+              "type": "boolean",
+              "description": "Inject proxy settings",
+              "default": false
+          },
+          "httpProxy": {
+              "type": "string",
+              "description": "URL of the enterprise proxy for the region for HTTP.",
+              "default": "",
+              "hidden": {
+                  "value": false,
+                  "path": "proxy/enabled"
+              }
+          },
+          "httpsProxy": {
+              "type": "string",
+              "description": "URL of the enterprise proxy for the region for HTTPS.",
+              "default": "",
+              "hidden": {
+                  "value": false,
+                  "path": "proxy/enabled"
+              }
+          },
+          "noProxy": {
+              "type": "string",
+              "description": "enterprise local domain that should not take proxy comma separated",
+              "default": "",
+              "hidden": {
+                  "value": false,
+                  "path": "proxy/enabled"
+              }
+          }
+      }
+  },
+    "message": {
+      "type": "object",
+      "description": "Warning message",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "ide/message.json"
+      },
+      "properties":{
+        "fr": {
+          "type": "string",
+          "description": "message à ajouter dans les notes",
+          "default": ""},
+        "en": {
+          "type": "string",
+          "description": "message to add in notes",
+          "default": ""}
       }
     }
   }
