@@ -1,6 +1,6 @@
 # java-maven-vscode
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The Visual Studio Code IDE with Java and Maven.
 
@@ -57,6 +57,8 @@ The Visual Studio Code IDE with Java and Maven.
 | init.standardInitPath | string | `"/opt/onyxia-init.sh"` |  |
 | kubernetes.enabled | bool | `true` |  |
 | kubernetes.role | string | `"view"` |  |
+| message.en | string | `""` |  |
+| message.fr | string | `""` |  |
 | metaflow.configMapName | string | `""` |  |
 | mlflow.configMapName | string | `""` |  |
 | nameOverride | string | `""` |  |
@@ -73,6 +75,10 @@ The Visual Studio Code IDE with Java and Maven.
 | persistence.size | string | `"10Gi"` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
+| proxy.enabled | bool | `false` |  |
+| proxy.httpProxy | string | `""` |  |
+| proxy.httpsProxy | string | `""` |  |
+| proxy.noProxy | string | `""` |  |
 | replicaCount | int | `1` |  |
 | repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |
@@ -104,6 +110,11 @@ The Visual Studio Code IDE with Java and Maven.
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| startupProbe.failureThreshold | int | `60` |  |
+| startupProbe.initialDelaySeconds | int | `10` |  |
+| startupProbe.periodSeconds | int | `10` |  |
+| startupProbe.successThreshold | int | `1` |  |
+| startupProbe.timeoutSeconds | int | `2` |  |
 | tolerations | list | `[]` |  |
 | userPreferences.darkMode | bool | `false` |  |
 | userPreferences.language | string | `"en"` |  |
