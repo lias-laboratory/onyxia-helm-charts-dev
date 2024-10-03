@@ -200,7 +200,7 @@
         "regionInit": {
           "type": "string",
           "description": "region initialization script",
-          "default": "",
+          "default": "https://www.lias-lab.fr/onyxia/onyxia-init.sh",
           "x-onyxia": {
             "hidden": true,
             "overwriteDefaultWith": "{{k8s.initScriptUrl}}"

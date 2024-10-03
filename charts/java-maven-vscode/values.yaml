@@ -21,7 +21,7 @@ security:
 
 init:
   standardInitPath: "/opt/onyxia-init.sh"
-  regionInit: "https://www.lias-lab.fr/onyxia/onyxia-init.sh"
+  regionInit: ""
   regionInitCheckSum: ""
   personalInit: ""
   personalInitArgs: ""
