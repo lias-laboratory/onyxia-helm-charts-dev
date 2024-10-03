@@ -1,6 +1,6 @@
 # java-maven-vscode
 
-![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.2](https://img.shields.io/badge/Version-1.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The Visual Studio Code IDE with Java and Maven.
 
@@ -52,7 +52,7 @@ The Visual Studio Code IDE with Java and Maven.
 | ingress.userHostname | string | `"chart-example-user.local"` |  |
 | init.personalInit | string | `""` |  |
 | init.personalInitArgs | string | `""` |  |
-| init.regionInit | string | `"https://www.lias-lab.fr/onyxia/onyxia-init.sh"` |  |
+| init.regionInit | string | `""` |  |
 | init.regionInitCheckSum | string | `""` |  |
 | init.standardInitPath | string | `"/opt/onyxia-init.sh"` |  |
 | kubernetes.enabled | bool | `true` |  |
