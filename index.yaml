@@ -1,0 +1,50 @@
+apiVersion: v1
+entries:
+  ada-gpr-alr-vscode:
+  - apiVersion: v2
+    created: "2024-10-04T13:12:43.908217477Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.5.23
+    description: The Visual Studio Code IDE with Ada toolsuite.
+    digest: f59ec3d8ac710ea3102faebd89772ffad3a32a7026a9b8fe1813d5eff5b6a0ea
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Ada
+    - Gpr
+    - Alire
+    name: ada-gpr-alr-vscode
+    sources:
+    - https://github.com/lias-laboratory/onyxia-images-development
+    - https://github.com/lias-laboratory/onyxia-helm-charts-dev
+    type: application
+    urls:
+    - https://github.com/lias-laboratory/onyxia-helm-charts-dev/releases/download/ada-gpr-alr-vscode-1.0.0/ada-gpr-alr-vscode-1.0.0.tgz
+    version: 1.0.0
+  java-maven-vscode:
+  - apiVersion: v2
+    created: "2024-10-04T13:12:44.060132446Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.5.23
+    description: The Visual Studio Code IDE with Java and Maven.
+    digest: 36ae0af3ddb4e167ece4e4580e91071de568699bd8132aea421d00f6af5560e3
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - Java
+    - Maven
+    - VSCode
+    name: java-maven-vscode
+    sources:
+    - https://github.com/lias-laboratory/onyxia-images-dev
+    - https://github.com/lias-laboratory/onyxia-helm-charts-dev
+    type: application
+    urls:
+    - https://github.com/lias-laboratory/onyxia-helm-charts-dev/releases/download/java-maven-vscode-1.0.0/java-maven-vscode-1.0.0.tgz
+    version: 1.0.0
+generated: "2024-10-04T13:12:44.060142795Z"
